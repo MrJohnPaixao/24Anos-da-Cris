@@ -190,7 +190,7 @@
   <button class="presentation-btn secondary" id="presentationTop" type="button" aria-label="Voltar ao topo">Topo</button>
   <label class="presentation-speed">
     <span>Velocidade</span>
-    <input id="presentationSpeed" type="range" min="0.35" max="1.8" step="0.05" value="0.75" aria-label="Velocidade da rolagem">
+    <input id="presentationSpeed" type="range" min="0.6" max="2.6" step="0.05" value="1.25" aria-label="Velocidade da rolagem">
   </label>
 </div>
 
@@ -425,7 +425,7 @@
     if (lastFrameTime === null) lastFrameTime = time;
     const elapsed = Math.min(time - lastFrameTime, 50);
     lastFrameTime = time;
-    const pixelsPerSecond = Number(speedInput.value) * 34;
+    const pixelsPerSecond = Number(speedInput.value) * 46;
 
     window.scrollBy(0, pixelsPerSecond * (elapsed / 1000));
 
