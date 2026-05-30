@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristilaine — 24 Anos ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fdf9f3; color: #2a1220; font-family: 'Cormorant Garamond', serif; font-size: 20px; line-height: 1.75; overflow-x: hidden; }
+
+    :root {
+      --rose: #b85a72; --gold: #c4972f; --dark: #1e0d18;
+      --cream: #fdf9f3; --peach: #f6ede0; --soft: #6b3a50;
+      --max: 1100px;
+    }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 36px; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── Reveal ── */
+    .rev { opacity: 0; transform: translateY(30px); transition: opacity 0.85s ease, transform 0.85s ease; }
+    .rev.on { opacity: 1; transform: none; }
+    .rev-d1 { transition-delay: 0.1s; } .rev-d2 { transition-delay: 0.2s; } .rev-d3 { transition-delay: 0.3s; }
+
+    /* ── Hero ── */
+    .hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { object-position: center 20%; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,13,24,0.15) 0%, rgba(30,13,24,0.1) 35%, rgba(30,13,24,0.82) 100%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 20px 72px; width: 100%; }
+    .hero-eyebrow { font-size: 12px; letter-spacing: 6px; text-transform: uppercase; color: rgba(255,228,200,0.8); margin-bottom: 14px; }
+    .hero-name { font-family: 'Dancing Script', cursive; font-size: clamp(72px, 11vw, 128px); font-weight: 700; color: #fff; line-height: 1; text-shadow: 0 4px 32px rgba(0,0,0,0.45); margin-bottom: 16px; }
+    .hero-badge { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: rgba(255,228,200,0.88); display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+    .hero-badge span { color: var(--gold); font-size: 11px; }
+    .hero-sub { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,210,190,0.6); }
+    .scroll-down { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,0.45); font-size: 22px; animation: bob 2.2s ease-in-out infinite; cursor: pointer; }
+    @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(10px)} }
+
+    /* ── Petals ── */
+    @keyframes petalFall { 0%{transform:translateY(0) rotate(0deg);opacity:0} 8%{opacity:.55} 92%{opacity:.3} 100%{transform:translateY(110vh) rotate(390deg);opacity:0} }
+    .petal { position:absolute;z-index:3;pointer-events:none;top:0;width:9px;height:13px;background:radial-gradient(ellipse at 30% 30%,#ffccd8,#ff9ab8);border-radius:50% 0 50% 0;animation:petalFall linear infinite; }
+
+    /* ── Section ── */
+    .sec { padding: 92px 0; }
+    .sec-alt { background: var(--peach); }
+    .sec-dark { background: var(--dark); color: #f5e4d8; }
+
+    .overline { font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(30px, 4vw, 50px); line-height: 1.2; margin-bottom: 20px; }
+    .sec-dark .sec-title { color: #f5e4d8; }
+    .body-text { font-weight: 300; font-size: 20px; line-height: 1.88; color: var(--soft); }
+    .sec-dark .body-text { color: rgba(245,228,216,0.78); }
+
+    .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; }
+    .divider::before,.divider::after { content:''; flex:1; height:1px; }
+    .divider::before { background: linear-gradient(to right, transparent, rgba(196,151,47,0.55)); }
+    .divider::after  { background: linear-gradient(to left,  transparent, rgba(196,151,47,0.55)); }
+    .divider em { color: var(--gold); font-size: 10px; font-style: normal; }
+
+    blockquote { font-style: italic; font-size: 21px; font-weight: 300; color: var(--rose); padding-left: 18px; border-left: 2px solid var(--rose); margin: 16px 0; line-height: 1.65; }
+    .pull-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(22px, 3vw, 38px); line-height: 1.4; text-align: center; max-width: 740px; margin: 0 auto; }
+    .caption { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); text-align: center; margin-top: 10px; font-style: italic; }
+
+    /* ── Photos ── */
+    .pf { overflow: hidden; border-radius: 3px; box-shadow: 0 4px 22px rgba(42,18,32,0.13); transition: transform .4s ease, box-shadow .4s ease; }
+    .pf:hover { transform: scale(1.02); box-shadow: 0 8px 36px rgba(42,18,32,0.22); }
+    .pf img { transition: transform .5s ease; }
+    .pf:hover img { transform: scale(1.04); }
+    .r43  { aspect-ratio: 4/3; }
+    .r34  { aspect-ratio: 3/4; }
+    .r11  { aspect-ratio: 1; }
+    .r23  { aspect-ratio: 2/3; }
+    .r169 { aspect-ratio: 16/9; }
+
+    /* ── Grids ── */
+    .g2  { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .g3  { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .g21 { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    .g12 { display: grid; grid-template-columns: 1fr 2fr; gap: 20px; }
+    .g32 { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; }
+    .sr2 { grid-row: span 2; }
+
+    /* ── Split (text+photo) ── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .split-r { grid-template-columns: 1fr 1fr; direction: rtl; }
+    .split-r > * { direction: ltr; }
+    .tcol { display: flex; flex-direction: column; gap: 14px; }
+
+    /* ── Letter ── */
+    .letter { background: #250b1a; padding: 104px 0; }
+    .letter-inner { max-width: 660px; margin: 0 auto; padding: 0 32px; text-align: center; }
+    .letter-name { font-family: 'Dancing Script', cursive; font-size: clamp(48px, 7vw, 78px); color: #f9d4e4; line-height: 1.05; margin-bottom: 32px; }
+    .letter-p { font-size: 21px; font-style: italic; font-weight: 300; color: rgba(249,216,228,0.82); line-height: 1.9; }
+    .letter-rule { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 36px 0; }
+    .letter-rule span { width: 56px; height: 1px; background: rgba(196,151,47,0.4); display: block; }
+    .letter-rule em { color: var(--gold); font-size: 14px; font-style: normal; }
+    .letter-verse { font-size: 15px; color: rgba(196,151,47,0.75); letter-spacing: 2px; font-style: italic; line-height: 1.7; }
+    .letter-sign { font-family: 'Dancing Script', cursive; font-size: 42px; color: var(--gold); margin-top: 28px; display: block; }
+
+    /* ── Footer ── */
+    footer { background: #160810; text-align: center; padding: 52px 32px; }
+    .foot-name { font-family: 'Dancing Script', cursive; font-size: 52px; color: rgba(249,216,228,0.65); display: block; margin-bottom: 8px; }
+    footer p { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: rgba(245,228,216,0.35); }
+
+    /* ── Responsive ── */
+    @media(max-width:820px) {
+      .split,.split-r,.g2,.g21,.g12,.g32 { grid-template-columns: 1fr; direction: ltr; }
+      .g3 { grid-template-columns: 1fr 1fr; }
+      .sr2 { grid-row: span 1; }
+      .sec { padding: 64px 0; }
+    }
+    @media(max-width:500px) {
+      .g3 { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="uploads/2b8e046c-d853-4361-96ab-ba646e2bcb27.jpg" alt="Cristilaine">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">30 de Maio de 2026</p>
+    <h1 class="hero-name">Cristilaine</h1>
+    <div class="hero-badge"><span>✦</span> 24 Anos de Luz <span>✦</span></div>
+    <p class="hero-sub">uma homenagem com todo amor do mundo</p>
+  </div>
+  <div class="scroll-down">↓</div>
+</section>
+
+<!-- ═══════════════════ 1 · A MULHER QUE VOCÊ É ═══════════════════ -->
+<section class="sec">
+  <div class="container">
+    <div class="split">
+      <div class="tcol rev">
+        <p class="overline">a quem Deus enviou</p>
+        <h2 class="sec-title">Você chegou e o mundo ficou mais bonito</h2>
+        <div class="divider"><em>✦</em></div>
+        <p class="body-text">Há pessoas que entram na nossa vida com uma luz tão singular que é impossível não perceber que Deus as enviou com um propósito especial. Cristilaine é exatamente assim — graça, força e amor em cada passo que dá.</p>
+        <blockquote>"Ela é muito mais preciosa do que rubis; nada do que você deseja se compara a ela." — Provérbios 3:15</blockquote>
+      </div>
+      <div class="pf r34 rev rev-d1">
+        <img src="uploads/IMG_2563.jpeg" alt="Cristilaine" style="object-position:center 8%;">
+      </div>
+    </div>
+
+    <div class="g2 rev" style="margin-top:48px; align-items:center;">
+      <div class="pf r43">
+        <img src="uploads/IMG_1936.jpeg" alt="" style="object-position:center 20%;">
+      </div>
+      <div class="tcol" style="padding:24px;">
+        <p class="overline">quem é ela</p>
+        <p class="sec-title" style="font-size:28px;">Guerreira. Fiel. Apaixonante.</p>
+        <p class="body-text">Do sorriso que ilumina qualquer ambiente à determinação que a leva ao tatame — ela é tudo isso e muito mais. Uma mulher completa, cheia de vida e de propósito, que faz qualquer lugar ser melhor só por estar lá.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 2 · NOSSA HISTÓRIA ═══════════════════ -->
+<section class="sec sec-alt">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;" class="rev">
+      <p class="overline">dois corações, uma história</p>
+      <h2 class="sec-title">Nossa História</h2>
+      <div class="divider"><em>✦</em></div>
+      <p class="pull-quote">"Ao seu lado, cada dia ordinário se torna uma memória extraordinária."</p>
+    </div>
+
+    <div class="g32 rev" style="align-items:start;">
+      <div class="g2">
+        <div class="pf r11"><img src="uploads/IMG_20231201_202325.jpg" alt="" style="object-position:center top;"></div>
+        <div class="pf r11"><img src="uploads/2659e449-9d4c-459e-afea-dc5cb516e3b4.jpg" alt="" style="object-position:center top;"></div>
+        <div class="pf r11"><img src="uploads/IMG_0383.JPEG" alt="" style="object-position:center top;"></div>
+        <div class="pf r11"><img src="uploads/acaf4812-a9a8-420c-890d-ce087b5a33c7.jpg" alt="" style="object-position:center top;"></div>
+      </div>
+      <div class="tcol" style="padding:12px 8px; justify-content:center; height:100%;">
+        <p class="overline">juntos</p>
+        <p class="sec-title" style="font-size:26px;">Cada momento ao seu lado é um presente</p>
+        <p class="body-text">Da intimidade do cotidiano às aventuras inesquecíveis — construímos uma história que o coração jamais vai esquecer. Você é minha pessoa favorita no mundo.</p>
+        <p style="font-family:'Dancing Script',cursive; font-size:30px; color:var(--rose); margin-top:8px;">Para sempre juntos ♡</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 3 · AVENTURAS JUNTOS ═══════════════════ -->
+<section class="sec">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;" class="rev">
+      <p class="overline">nossos destinos</p>
+      <h2 class="sec-title">Aventuras Juntos</h2>
+      <div class="divider"><em>✦</em></div>
+    </div>
+
+    <!-- Rio de Janeiro -->
+    <p class="overline rev" style="text-align:center; margin-bottom:20px;">Rio de Janeiro</p>
+    <div class="g3 rev">
+      <div class="pf r34"><img src="uploads/IMG_20230926_151050.jpg" alt="" style="object-position:center top;"></div>
+      <div class="pf r34"><img src="uploads/IMG_20230926_151835.jpg" alt="" style="object-position:center top;"></div>
+      <div class="pf r34"><img src="uploads/IMG_20230927_073800.jpg" alt="" style="object-position:center top;"></div>
+    </div>
+
+    <div class="rev" style="margin:36px auto; max-width:680px; text-align:center;">
+      <p class="body-text">"O Rio de Janeiro com você foi mágico — do Pão de Açúcar ao Cristo Redentor, cada vista ficou ainda mais linda porque você estava ao meu lado."</p>
+    </div>
+
+    <!-- Water park -->
+    <p class="overline rev" style="text-align:center; margin-bottom:20px;">No Parque Aquático</p>
+    <div class="g2 rev">
+      <div class="pf r34"><img src="uploads/IMG_4527.jpeg" alt="" style="object-position:center top;"></div>
+      <div class="pf r34"><img src="uploads/IMG_4513.jpeg" alt="" style="object-position:center 20%;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 4 · MOMENTOS ESPECIAIS ═══════════════════ -->
+<section class="sec sec-alt">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:48px;" class="rev">
+      <p class="overline">memórias que o coração guarda</p>
+      <h2 class="sec-title">Momentos Especiais</h2>
+    </div>
+
+    <div class="g12 rev" style="align-items:start; margin-bottom:20px;">
+      <div class="tcol">
+        <div class="pf r11"><img src="uploads/6DE09042-50D2-494B-9D53-6B94F3B40D20.jpeg" alt="" style="object-position:center top;"></div>
+        <div class="pf r11"><img src="uploads/9330d506-b40f-44c3-beaf-0508b5ecc26e.jpg" alt="" style="object-position:center top;"></div>
+      </div>
+      <div class="pf" style="aspect-ratio:3/4;">
+        <img src="uploads/IMG_1793.JPG" alt="" style="object-position:center 20%;">
+      </div>
+    </div>
+
+    <div class="rev" style="max-width:560px; margin:0 auto; text-align:center;">
+      <div class="pf r43"><img src="uploads/fc2970dc-7cec-493d-8414-1e8dc7f02e32.jpg" alt="" style="object-position:center top;"></div>
+      <p class="caption">Feliz Aniversário — sempre ao seu lado</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 5 · A GUERREIRA ═══════════════════ -->
+<section class="sec">
+  <div class="container">
+    <div class="split split-r rev">
+      <div class="pf r23">
+        <img src="uploads/IMG_1977.jpeg" alt="" style="object-position:center top;">
+      </div>
+      <div class="tcol">
+        <p class="overline">força e determinação</p>
+        <h2 class="sec-title">A Guerreira que Você É</h2>
+        <div class="divider"><em>✦</em></div>
+        <p class="body-text">No tatame ou na vida, você enfrenta cada desafio com garra e fé. A faixa azul de Jiu-Jitsu é apenas mais uma prova do que todos que te conhecem já sabem: você não desiste. Nunca. Você é força e delicadeza ao mesmo tempo — e isso te torna extraordinária.</p>
+        <blockquote>"Tudo posso naquele que me fortalece." — Filipenses 4:13</blockquote>
+      </div>
+    </div>
+
+    <div class="g2 rev" style="margin-top:24px;">
+      <div class="pf r43"><img src="uploads/IMG_9878.JPEG" alt="" style="object-position:center top;"></div>
+      <div class="pf r43"><img src="uploads/IMG_20230729_174132.jpg" alt="" style="object-position:center top;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 6 · CARTA DE AMOR ═══════════════════ -->
+<section class="letter">
+  <div class="letter-inner rev">
+    <p class="overline" style="color:rgba(196,151,47,0.65); letter-spacing:5px;">uma carta para você</p>
+    <h2 class="letter-name">Cristilaine,</h2>
+
+    <p class="letter-p">Hoje você completa 24 anos, e eu não poderia deixar este dia passar sem dizer ao mundo inteiro o quanto você é especial para mim.</p>
+    <br>
+    <p class="letter-p">Você é a minha melhor amiga, minha companheira de aventuras, minha parceira de fé e de vida. Cada foto aqui guarda um pedaço do nosso amor — elas mostram o que palavras às vezes não conseguem expressar.</p>
+    <br>
+    <p class="letter-p">Que Deus continue te abençoando, te guardando e derramando sobre você toda a graça que você merece. Que estes 24 anos sejam só o começo de uma história ainda mais linda — escrita por nós dois, com a mão de Deus.</p>
+
+    <div class="letter-rule"><span></span><em>✟</em><span></span></div>
+
+    <p class="letter-verse">"O amor é paciente, o amor é bondoso... ele tudo sofre, tudo crê, tudo espera, tudo suporta."<br>— 1 Coríntios 13 : 4,7</p>
+
+    <span class="letter-sign">Com todo amor do mundo, ♡</span>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <span class="foot-name">Cristilaine</span>
+  <p>24 Anos &nbsp;·&nbsp; 30 de Maio de 2026</p>
+  <p style="margin-top:16px; font-size:22px; color:rgba(249,200,220,0.25);">♡</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+  // Hero petals
+  const hero = document.querySelector('.hero');
+  for (let i = 0; i < 16; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.style.cssText = `left:${(i*6+4)%100}%;animation-duration:${5+(i*0.55)%3}s;animation-delay:-${(i*0.88)%5}s;transform:scale(${0.7+(i%4)*0.14})`;
+    hero.appendChild(p);
+  }
+</script>
+</body>
+</html>
