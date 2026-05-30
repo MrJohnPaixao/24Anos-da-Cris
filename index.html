@@ -391,13 +391,24 @@
   const toggle = document.getElementById('presentationToggle');
   const topBtn = document.getElementById('presentationTop');
   const speedInput = document.getElementById('presentationSpeed');
+  const scrollRoot = document.scrollingElement || document.documentElement || document.body;
   let presentationPlaying = false;
   let presentationFrame = null;
   let lastFrameTime = null;
   let hideControlsTimer = null;
 
   function maxScroll() {
-    return document.documentElement.scrollHeight - window.innerHeight;
+    return scrollRoot.scrollHeight - window.innerHeight;
+  }
+
+  function currentScroll() {
+    return scrollRoot.scrollTop || window.pageYOffset || document.documentElement.scrollTop || 0;
+  }
+
+  function setScrollPosition(value) {
+    scrollRoot.scrollTop = value;
+    document.documentElement.scrollTop = value;
+    document.body.scrollTop = value;
   }
 
   function setControlsVisible(visible) {
@@ -426,10 +437,11 @@
     const elapsed = Math.min(time - lastFrameTime, 50);
     lastFrameTime = time;
     const pixelsPerSecond = Number(speedInput.value) * 46;
+    const nextScroll = Math.min(currentScroll() + pixelsPerSecond * (elapsed / 1000), maxScroll());
 
-    window.scrollBy(0, pixelsPerSecond * (elapsed / 1000));
+    setScrollPosition(nextScroll);
 
-    if (window.scrollY >= maxScroll() - 2) {
+    if (currentScroll() >= maxScroll() - 2) {
       stopPresentation();
       return;
     }
@@ -444,14 +456,25 @@
     presentationFrame = requestAnimationFrame(presentationStep);
   }
 
-  toggle.addEventListener('click', () => {
+  function togglePresentation() {
     if (presentationPlaying) stopPresentation();
     else startPresentation();
-  });
+  }
+
+  toggle.addEventListener('click', togglePresentation);
+  toggle.addEventListener('touchend', event => {
+    event.preventDefault();
+    togglePresentation();
+  }, { passive: false });
 
   topBtn.addEventListener('click', () => {
     stopPresentation();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setScrollPosition(0);
+  });
+  topBtn.addEventListener('touchend', event => {
+    event.preventDefault();
+    stopPresentation();
+    setScrollPosition(0);
   });
 
   ['click', 'touchstart', 'mousemove'].forEach(eventName => {
